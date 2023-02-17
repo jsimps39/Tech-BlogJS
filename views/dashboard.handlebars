@@ -1,0 +1,84 @@
+{{!-- <div class="row">
+  <div class="col-auto">
+    <h2>Welcome, {{name}}!</h2>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h3>Create a New Blog Post:</h3>
+
+    <form class="form new-project-form">
+      <div class="form-group">
+        <label for="project-name">post name:</label>
+        <input class="form-input" type="text" id="project-name" name="project-name" />
+      </div>
+      <div class="form-group">
+        <label for="project-desc">description:</label>
+        <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </form>
+  </div>
+
+  {{#if blogs.length}}
+  <div class="col-md-6 project-list">
+    <h3>Current Posts:</h3>
+
+    {{#each blogs as |blog|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/project/{{project.id}}">{{project.name}}</a></h4>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">DELETE</button>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>
+--}}
+{{#if loggedIn}}
+<div class="container px-4 px-lg-5 p-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        {{#each blogs as |blog|}}
+        {{> userblog}} 
+        {{/each}}
+    </div>
+</div> 
+
+
+<button onclick="showPostForm()" class="btn btn-primary position-absolute bottom-80 end-50">Make a Post</button>
+<div class="container">
+    <form id="post-form" class="card-body" style="display: none;">
+        <h1 class="h3 mb-3 fw-normal">Write Blog Below:</h1>
+        <div class="form-floating">
+
+            <input type="text" class="form-control" id="title-input" placeholder="Name">
+            <label for="name-input">Name</label>
+
+        </div>
+        <div class="form-floating">
+
+            <input type="text" class="form-control" id="description-input" placeholder="Description">
+            <label for="description-input" class="form-label">Description</label>
+
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit" id="login-btn">Submit</button>
+    </form>
+</div>
+{{else}}
+<div class="login-alert"><a href="/login">You must login to view the dashboard and make a post</a></div>
+{{/if}}
+
+<script type="text/javascript">
+    function showPostForm() {
+        document.getElementById('post-form').style.display = 'block';
+    }
+</script>
+
+
+<script src="/js/makeblogpost.js"></script>
