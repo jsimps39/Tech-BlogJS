@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
   });
   console.log(blogData);
   res.json(blogData);
-})
+});
 
 router.get('/', async (req, res) => {
   try {
