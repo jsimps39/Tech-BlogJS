@@ -13,4 +13,4 @@ In this project I created a blog post app which allows users to create, view and
 [link](https://jsimps39.github.io/Tech-BlogJS/)
 
 ## Link to App
-[link](https://drive.google.com/file/d/1y17IU3t_zVViISjE8IGZo9n5-VCHD26n/view)
+[link](https://tech-blogjs.herokuapp.com/)
